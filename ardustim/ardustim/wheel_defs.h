@@ -73,7 +73,7 @@
    * Number of edges in the edge array above, needed by the ISR 
    */
  typedef enum { 
-   DIZZY_FOUR_CYLINDER,  /* 2 evenly spaced teeth */
+   DIZZY_FOUR_CYLINDER,  /* 2 evenly spaced teeth - 0 */                     
    DIZZY_SIX_CYLINDER,   /* 3 evenly spaced teeth */
    DIZZY_EIGHT_CYLINDER, /* 4 evenly spaced teeth */
    SIXTY_MINUS_TWO,      /* 60-2 crank only */
@@ -83,7 +83,7 @@
    TWENTY_FOUR_MINUS_ONE,
    FOUR_MINUS_ONE_WITH_CAM, /* 4-1 crank + cam */
    EIGHT_MINUS_ONE,       /* 8-1 crank only */
-   SIX_MINUS_ONE_WITH_CAM,/* 6-1 crank + cam */
+   SIX_MINUS_ONE_WITH_CAM,/* 6-1 crank + cam - 10 */
    TWELVE_MINUS_ONE_WITH_CAM, /* 12-1 crank + cam */
    FOURTY_MINUS_ONE,      /* Ford V-10 40-1 crank only */
    DIZZY_FOUR_TRIGGER_RETURN,  /* dizzy 4 cylinder signal, 40deg on 50 deg off */
@@ -93,7 +93,7 @@
    THIRTY_SIX_MINUS_TWO_TWO_TWO, /* 36-2-2-2 crank only H4 */
    THIRTY_SIX_MINUS_TWO_TWO_TWO_H6, /* 36-2-2-2 crank only H6 */
    THIRTY_SIX_MINUS_TWO_TWO_TWO_WITH_CAM, /* 36-2-2-2 crank and cam */
-   FOURTY_TWO_HUNDRED_WHEEL, /* 4200 wheel */
+   FOURTY_TWO_HUNDRED_WHEEL, /* 4200 wheel  - 20 */
    THIRTY_SIX_MINUS_ONE_WITH_CAM_FE3, /* Mazda F3 36-1 crank and cam */
    SIX_G_SEVENTY_TWO_WITH_CAM, /* Mitsubishi DOHC CAS and TCDS 6G72 */
    BUELL_ODDFIRE_CAM,     /* Buell 45 deg cam wheel */
@@ -103,7 +103,7 @@
    HONDA_RC51_WITH_CAM,   /* Honda oddfire 90 deg V-twin */
    THIRTY_SIX_MINUS_ONE_WITH_SECOND_TRIGGER, /* From jimstim */
    CHRYSLER_NGC_THIRTY_SIX_PLUS_TWO_MINUS_TWO_WITH_NGC4_CAM, /* Chrysler NGC 36+2-2 crank with NGC 4 cylinder cam pattern */
-   CHRYSLER_NGC_THIRTY_SIX_MINUS_TWO_PLUS_TWO_WITH_NGC6_CAM, /* Chrysler NGC 36-2+2 crank with NGC 6 cylinder cam pattern */
+   CHRYSLER_NGC_THIRTY_SIX_MINUS_TWO_PLUS_TWO_WITH_NGC6_CAM, /* Chrysler NGC 36-2+2 crank with NGC 6 cylinder cam pattern  30 */
    CHRYSLER_NGC_THIRTY_SIX_MINUS_TWO_PLUS_TWO_WITH_NGC8_CAM, /* Chrysler NGC 36-2+2 crank with NGC 8 cylinder cam pattern */
    WEBER_IAW_WITH_CAM, /* From jimstim IAW weber-marelli */
    FIAT_ONE_POINT_EIGHT_SIXTEEN_VALVE_WITH_CAM, /* Fiat 1.8 16V from jimstim */
@@ -113,7 +113,7 @@
    GM_FOUR_TOOTH_WITH_CAM, /* GM 4 even crank with half moon cam */
    GM_SIX_TOOTH_WITH_CAM, /* GM 4 even crank with half moon cam */
    GM_EIGHT_TOOTH_WITH_CAM, /* GM 4 even crank with half moon cam */
-   VOLVO_D12ACD_WITH_CAM, /* Volvo Diesel d12[acd] with cam (alex32 on forums.libreems.org */
+   VOLVO_D12ACD_WITH_CAM, /* Volvo Diesel d12[acd] with cam (alex32 on forums.libreems.org 40 */
    MAZDA_THIRTY_SIX_MINUS_TWO_TWO_TWO_WITH_SIX_TOOTH_CAM,
    MITSUBISH_4g63_4_2,
    AUDI_135_WITH_CAM,
@@ -121,9 +121,9 @@
    MAZDA_323_AU,
    DAIHATSU_3CYL,
    MIATA_9905,
-   TWELVE_WITH_CAM, //12 evenly spaced crank teeth and a single cam tooth
-   TWENTY_FOUR_WITH_CAM, //24 evenly spaced crank teeth and a single cam tooth
-   SUBARU_SIX_SEVEN,      /* Subaru 6 crank, 7 cam */
+   TWELVE_WITH_CAM, //12 evenly spaced crank teeth and a single cam tooth 48
+   TWENTY_FOUR_WITH_CAM, //24 evenly spaced crank teeth and a single cam tooth  49
+   SUBARU_SIX_SEVEN,      /* Subaru 6 crank, 7 cam  - 50*/ 
    GM_7X,                 /* GM 7X pattern. 6 even teeth with 1 extra uneven tooth */
    FOUR_TWENTY_A,         /* DSM 420a */
    FORD_ST170,            /* Ford ST170 */
@@ -135,6 +135,9 @@
    BMW_N20, //BMW N20 58x and custom cam wheels
    VIPER_96_02, // Dodge Viper 1996-2002 wheel pattern
    THIRTY_SIX_MINUS_TWO_WITH_ONE_CAM, // 36-2 with  1 tooth cam - 2jz-gte VVTI crank pulley + non-vvti cam
+   ONE_THIRTY_WITH_ONE_CAM, // dual wheel 130 crank 1 cam
+   THIRTEEN_FIVE_BASIC_DISTRIBUTOR_AUDI,
+   SIXTY_SIX_MINUS_TWO_TWO_TWO_ONE_CAM,
    MAX_WHEELS,
  }WheelType;
 
@@ -201,6 +204,9 @@
  const char BMW_N20_friendly_name[] PROGMEM = "BMW N20";
  const char VIPER9602_friendly_name[] PROGMEM = "Dodge Viper V10 1996-2002";
  const char thirty_six_minus_two_with_second_trigger_friendly_name[] PROGMEM = "36-2 with 1 tooth cam";
+ const char one_thirty_with_one_cam_friendly_name[] PROGMEM = "130 crank 1 cam";
+ const char thirteen_five_basic_distributor_audi_friendly_name[] PROGMEM = "thirteen five basic distrubtor audi";
+ const char sixty_six_minus_two_minus_two_minus_two_plus_one_cam_friendly_name[] PROGMEM = "jeep 66 - 2 - 2 - 2 with one cam";
 
  /* Very simple 50% duty cycle */
  const unsigned char dizzy_four_cylinder[] PROGMEM = 
@@ -1485,5 +1491,124 @@
      1,0,1,0,1,0,1,0,0,0, /* Teeth 31-34, 35th tooth missing  */
      0,0                  /* 36th MISSING tooth */
    };
+
+ /* 36-2 with second trigger pulse across teeth 33-34 on first rotation */
+ const unsigned char one_thirty_with_one_cam_trigger[] PROGMEM =
+   { /* 36-2 + single tooth cam */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 1-5 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 6-10, cam in here somewhere - length/position not accurate to actual engine*/
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 11-15 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 16-20 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 21-25 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 26-30 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 31-34 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 35-40 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 41-45 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 46-50 */
+
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 1-5 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 6-10, cam in here somewhere - length/position not accurate to actual engine*/
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 11-15 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 16-20 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 21-25 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 26-30 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 31-34 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 35-40 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 41-45 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 46-50 */
+
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 1-5 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 6-10, cam in here somewhere - length/position not accurate to actual engine*/
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 11-15 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 16-20 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 21-25 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 26-30 */
+
+
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 1-5 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 6-10, cam in here somewhere - length/position not accurate to actual engine*/
+     1,0,1,0,3,2,3,2,1,0, /* Teeth 11-15 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 16-20 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 21-25 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 26-30 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 31-34 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 35-40 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 41-45 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 46-50 */
+
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 1-5 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 6-10, cam in here somewhere - length/position not accurate to actual engine*/
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 11-15 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 16-20 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 21-25 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 26-30 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 31-34 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 35-40 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 41-45 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 46-50 */
+
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 1-5 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 6-10, cam in here somewhere - length/position not accurate to actual engine*/
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 11-15 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 16-20 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 21-25 */
+     1,0,1,0,1,0,1,0,1,0 /* Teeth 26-30 */
+
+   };
+
+   /* 36-2 with second trigger pulse across teeth 33-34 on first rotation */
+ const unsigned char thirteen_five_basic_distributor_audi[] PROGMEM =
+   { /* 36-2 + single tooth cam */
+     1,1,1,1,1,1,1,1,1,1, /* Teeth 1-5 */
+     1,1,1,1,1,1,1,1,1,1, /* Teeth 6-10, cam in here somewhere - length/position not accurate to actual engine*/
+
+     1,1,1,1,1,1,0,0,0,0, /* Teeth 11-15 */
+     0,0,0,0,0,0, 
+
+     1,1,1,1,1,1,1,1,1,1, /* Teeth 1-5 */
+     1,1,1,1,1,1,1,1,1,1, /* Teeth 6-10, cam in here somewhere - length/position not accurate to actual engine*/
+
+     1,1,1,1,1,1,0,0,0,0, /* Teeth 11-15 */
+     0,0,0,0,0,0
+
+   };
+
+
+ /* 36-2 with second trigger pulse across teeth 33-34 on first rotation */
+ const unsigned char sixty_six_minus_two_minus_two_minus_two_plus_one_cam[] PROGMEM =
+   { /* 36-2 + single tooth cam */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 1-5 */
+     1,0,1,0,3,2,3,2,1,0, /* Teeth 6-10, cam in here somewhere - length/position not accurate to actual engine  close enough for an edge*/
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 11-15 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 16-20 */
+     0, 0, 0, 0,          /* teeth 21 22 missing*/
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 23 - 27 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 28 - 32 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 33 - 37 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 38 - 42  */
+     0, 0, 0, 0,          /* teethh 43 44 missing*/
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 45 - 49  */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 50 - 54 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 55 - 59 */
+     1,0,1,0,1,0,1,0,1,0, /* Teeth 60 - 64 */
+     0, 0, 0, 0,          /* teeth 65 66 imssing */
+     1,0,1,0,1,0,1,0,1,0,  /* same thing no cam */
+     1,0,1,0,1,0,1,0,1,0, 
+     1,0,1,0,1,0,1,0,1,0, 
+     1,0,1,0,1,0,1,0,1,0, 
+     0, 0, 0, 0,
+     1,0,1,0,1,0,1,0,1,0, 
+     1,0,1,0,1,0,1,0,1,0, 
+     1,0,1,0,1,0,1,0,1,0, 
+     1,0,1,0,1,0,1,0,1,0, 
+     0, 0, 0, 0,
+     1,0,1,0,1,0,1,0,1,0, 
+     1,0,1,0,1,0,1,0,1,0, 
+     1,0,1,0,1,0,1,0,1,0,
+     1,0,1,0,1,0,1,0,1,0, 
+     0, 0, 0, 0
+   };
+
+
 
   #endif

@@ -7,12 +7,14 @@
 
 void loadConfig()
 {
-  if(EEPROM.read(EEPROM_VERSION) == 255)
+  if(EEPROM.read(EEPROM_VERSION) == 255 || 1)
   {
     //New arduino
-    config.wheel = 5; //36-1
-    currentStatus.rpm = 3000;
-    currentStatus.base_rpm = 3000;
+     config.wheel = 61 ; //36-2 + 1 2jz-
+    // config.wheel = 64 ; // 66-2-2-2 jeep 
+    // config.wheel = 48 ; // 12 + 1 honda 
+    currentStatus.rpm = 150;
+    currentStatus.base_rpm = 150;
     config.mode = POT_RPM;
 
     config.fixed_rpm = 3500;
@@ -21,9 +23,10 @@ void loadConfig()
     config.sweep_interval = 1000;
 
     config.useCompression = false;
-    config.compressionType = COMPRESSION_TYPE_4CYL_4STROKE;
-    config.compressionRPM = 400;
+    config.compressionType = COMPRESSION_TYPE_6CYL_4STROKE;
+    config.compressionRPM = 800;
     config.compressionOffset = 0;
+
 
     saveConfig();
   }

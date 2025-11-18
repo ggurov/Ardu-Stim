@@ -44,7 +44,7 @@ volatile uint8_t output_invert_mask = 0x00; /* Don't invert anything */
 volatile uint8_t prescaler_bits = 0;
 volatile uint8_t last_prescaler_bits = 0;
 volatile uint16_t new_OCR1A = 5000; /* sane default */
-volatile uint16_t edge_counter = 0;
+volatile uint16_t edge_counter = 86;
 volatile uint32_t cycleStartTime = micros();
 volatile uint32_t cycleDuration = 0;
 uint32_t sweep_time_counter = 0;
@@ -120,6 +120,9 @@ wheels Wheels[MAX_WHEELS] = {
   { BMW_N20_friendly_name, bmw_n20, 1.0, 240, 720},
   { VIPER9602_friendly_name, viper9602wheel, 1.0, 240, 720},
   { thirty_six_minus_two_with_second_trigger_friendly_name, thirty_six_minus_two_with_second_trigger, 1.0, 144, 720 },
+  { one_thirty_with_one_cam_friendly_name, one_thirty_with_one_cam_trigger, 1.0, 520, 720 },
+  { thirteen_five_basic_distributor_audi_friendly_name, thirteen_five_basic_distributor_audi, 1.0, 72, 360 },
+  { sixty_six_minus_two_minus_two_minus_two_plus_one_cam_friendly_name, sixty_six_minus_two_minus_two_minus_two_plus_one_cam, 1.0, 264, 720},
 };
 
 /* Initialization */
@@ -295,6 +298,7 @@ void loop()
       adc0_read_complete = false;
       tmp_rpm = adc0 << TMP_RPM_SHIFT;
       if (tmp_rpm > TMP_RPM_CAP) { tmp_rpm = TMP_RPM_CAP; }
+      if (tmp_rpm < 150) { tmp_rpm = 150; } // rpm below a certain points with POT_RPM behaves INSANE due to noisy adc
     }
   }
   else if (config.mode == LINEAR_SWEPT_RPM)
@@ -360,7 +364,7 @@ uint16_t calculateCompressionModifier()
       break;
   }
   
-  return compressionModifier;
+  return compressionModifier * 0.7;
 }
 
 uint16_t calculateCurrentCrankAngle()

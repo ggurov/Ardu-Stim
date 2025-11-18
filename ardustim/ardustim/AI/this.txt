@@ -1,0 +1,5 @@
+This is a project that simulates crank and cam angle wheel patterns for use with engine management systems
+It uses mega2560 as microcontroller and outputs a defined pattern to two pins , crank and cam
+simulating various patterns of teeth and cam pulses for different engine types and configurations
+
+a wheel definition is specified in @wheel_defs.h and then iterated over to output the correct pattern to the two pins

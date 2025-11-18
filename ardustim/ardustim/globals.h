@@ -24,8 +24,8 @@
 #include "Arduino.h"
 #include "wheel_defs.h"
  
-#define TMP_RPM_SHIFT 4 /* x16, 0-16384 RPM via pot */
-#define TMP_RPM_CAP 9000 /* MAX RPM via pot control. Adjusted to 9,000rpm max from 16,384rpm to match the GUI */
+#define TMP_RPM_SHIFT 3 /* x16, 0-16384 RPM via pot */
+#define TMP_RPM_CAP 10000 /* MAX RPM via pot control. Adjusted to 9,000rpm max from 16,384rpm to match the GUI */
 #define EEPROM_LAST_MODE  100
 
 #define COMPRESSION_TYPE_1CYL_4STROKE 0 //Not initiallity supported
@@ -46,7 +46,7 @@ struct configTable
   uint16_t sweep_interval = 1000;
 
   //11
-  bool useCompression = false;
+  bool useCompression = true;
   uint8_t compressionType = 0;
   uint16_t compressionRPM = 400;
   uint16_t compressionOffset = 0;
